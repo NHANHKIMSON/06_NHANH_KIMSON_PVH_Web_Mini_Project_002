@@ -1,5 +1,17 @@
 import Logo from "@/components/logo";
 import AppSideBar from "./_components/AppSideBar";
+import {
+  AddSquare,
+  ArrowRight2,
+  Logout,
+  LogoutCurve,
+  More,
+  Notification,
+  Notification1,
+  Ranking,
+  Star,
+} from "iconsax-react";
+import AppHeader from "./_components/AppHeader";
 
 export default function Layout({ children }) {
   return (
@@ -35,49 +47,15 @@ export default function Layout({ children }) {
           <div className="container my-12 flex justify-center">
             <Logo />
           </div>
-
-          <ul className="space-y-2 font-medium mt-6">
-
-            <div className="w-full h-60 bg-red-300">
-                
-            </div>
-            
-            <div className="w-full h-60 bg-red-300">
-
-            </div>
-
-
-
-            {/* {data.map((items) => (
-              <li key={items.id}>
-                <Link
-                  href={items.link}
-                  className="flex items-center p-2 rounded-lg group transition-all bg-gray-200"
-                >
-                  {items.icon}
-                  <span className="ms-3">{items.title}</span>
-                </Link>
-              </li>
-            ))} */}
-
-            {/* nav items */}
-            <li className="mt-8">
-              <a
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-              >
-                <span className="flex-1 ms-3 whitespace-nowrap">Settings</span>
-              </a>
-            </li>
-          </ul>
+          <AppSideBar/>
         </div>
       </aside>
 
       <div className="sm:ml-80 flex flex-col items-center dark:bg-black dark:text-white overflow-y-hidden bg-slate-100">
-        <div className="p-4 border-dashed rounded-lg dark:border-gray-700 w-full max-w-6xl bg-slate-100">
+        <div className="border-dashed rounded-lg dark:border-gray-700 w-full max-w-6xl bg-slate-100">
           {/* Search Component */}
-          <div className="w-full mb-4 h-screen overflow-y-hidden">
-            {/* <Search /> */}
+          <div className="w-full h-screen overflow-y-hidden">
+            <AppHeader/>
             {children}
           </div>
         </div>

@@ -1,17 +1,28 @@
-const AppHeader = () => {
+"use server";
+import { ArrowRight2, Notification } from "iconsax-react";
+import { getCurrentUser } from "../../../../service/login-service";
+import Account from "./Account";
+const AppHeader = async () => {
+  const data = await getCurrentUser();
+  const user = data.payload;
   return (
     <>
-      <header className="sticky top-0 flex justify-between items-center p-5 bg-white shadow">
-        <h2 className="text-xl font-semibold">Workspace</h2>
-        <div className="flex items-center gap-4">
-          <span className="text-gray-600">Monster</span>
-          <img
-            src="/user-avatar.png"
-            alt="User Avatar"
-            className="w-8 h-8 rounded-full"
-          />
+      <div className="w-full px-8 py-2 bg-white flex justify-between">
+        <div className="flex items-center gap-3">
+          <p>Workspace </p>
+          <ArrowRight2 size="16" color="black" />
+          <p className="text-blue-600 underline decoration-2 underline-offset-4">
+            HRD Design{" "}
+          </p>
         </div>
-      </header>
+        <div>
+            <Account 
+            username={user?.username} 
+            email={user?.email} 
+            profile={user?.profile}
+             />
+        </div>
+      </div>
     </>
   );
 };

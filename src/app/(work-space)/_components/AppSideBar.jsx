@@ -1,89 +1,58 @@
-import Logo from "@/components/logo";
-import Link from "next/link";
-
-import {
-  Airplane,
-  Book,
-  Camera,
-  Code,
-  Edit,
-  EmojiHappy,
-  Home,
-  Music,
-  Video,
-  Weight,
-} from "iconsax-react";
-
-export const data = [
-  {
-    id: 1,
-    icon: <Home className="w-7" color="red" />,
-    title: "Home",
-    link: "/",
-  },
-
-  {
-    id: 2,
-    icon: <Book className="w-7" color="red" />,
-    title: "Book Categories",
-    link: "/book-categories",
-  },
-  {
-    id: 3,
-    icon: <EmojiHappy className="w-7" color="red" />,
-    title: "Old-School Cartoons",
-    link: "/old-school-cartoons",
-  },
-  {
-    id: 4,
-    icon: <Video className="w-7" color="red" />,
-    title: "Movies & TV Shows",
-    link: "/#",
-  },
-  {
-    id: 5,
-    icon: <Music className="w-7" color="red" />,
-    title: "Music",
-    link: "/#",
-  },
-  {
-    id: 6,
-    icon: <Camera className="w-7" color="red" />,
-    title: "Photography",
-    link: "/#",
-  },
-  {
-    id: 7,
-    icon: <Weight className="w-7" color="red" />,
-    title: "Sports & Fitness",
-    link: "/#",
-  },
-  {
-    id: 8,
-    icon: <Code className="w-7" color="red" />,
-    title: "Technology & Gadgets",
-    link: "/#",
-  },
-  {
-    id: 9,
-    icon: <Airplane className="w-7" color="red" />,
-    title: "Travel & Exploration",
-    link: "/#",
-  },
-  {
-    id: 10,
-    icon: <Edit className="w-7" color="red" />,
-    title: "Writing & Journaling",
-    link: "/#",
-  },
-];
+"use client"
+import { AddSquare, LoginCurve, More } from "iconsax-react";
+import { Star } from "lucide-react";
+import CreateNewWorkSpace from "./CreateNewWorkSpaceComponent";
+import WorkSpace from "./sidebar_card/work-space";
 
 const AppSideBar = () => {
   return (
     <>
-      side bar
+      <ul className="space-y-2 font-medium mt-6">
+        <div className="w-full">
+          <div className="px-4">
+            <div className="flex justify-between items-center">
+              <h3 className="text-slate-500 text-2xl font-bold">Work Space</h3>
+              {/*  */}
+              <CreateNewWorkSpace />
+            </div>
+            {/* CardSidebar */}
+            <WorkSpace/>
+          </div>
+        </div>
+        {/* Favorite */}
+        <div className="w-full mt-6">
+          <div className="px-4">
+            <div className="flex justify-between items-center">
+              <h3 className="text-slate-500 text-2xl font-bold">Favorite</h3>
+              <Star size="32" color="#94A3B8" />
+            </div>
+            {/* CardSidebar */}
+            <div>
+              <div className="flex justify-between mt-3 bg-slate-200 px-4 py-2 rounded-sm">
+                <div className="flex justify-between gap-3 items-center">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div>HRD Design</div>
+                </div>
+                <More size="32" color="black" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* nav items */}
+        <li className="mt-8">
+          <a
+            href="#"
+            className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+          >
+            <LoginCurve size="32" color="#009990" />
+            <span className="flex-1 ms-3 whitespace-nowrap text-[#009990] font-bold text-xl">
+              Logout
+            </span>
+          </a>
+        </li>
+      </ul>
     </>
   );
 };
-
 export default AppSideBar;
