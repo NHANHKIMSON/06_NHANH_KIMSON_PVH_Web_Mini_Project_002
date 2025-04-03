@@ -47,16 +47,15 @@ export default function Layout({ children }) {
           <div className="container my-12 flex justify-center">
             <Logo />
           </div>
-          <AppSideBar/>
+          <AppSideBar />
         </div>
       </aside>
-
       <div className="sm:ml-80 flex flex-col items-center dark:bg-black dark:text-white overflow-y-hidden bg-slate-100">
         <div className="border-dashed rounded-lg dark:border-gray-700 w-full max-w-6xl bg-slate-100">
           {/* Search Component */}
-          <div className="w-full h-screen overflow-y-hidden">
-            <AppHeader/>
-            {children}
+          <div className="w-full h-screen overflow-y-scroll">
+            <AppHeader />
+            <div >{children}</div>
           </div>
         </div>
       </div>

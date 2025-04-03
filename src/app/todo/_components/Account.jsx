@@ -1,7 +1,6 @@
 import { Notification } from "iconsax-react";
 
 export default function Account({ username, email, profile }) {
-  console.log(profile);
   return (
     <>
       <div className="flex justify-between items-center gap-4">

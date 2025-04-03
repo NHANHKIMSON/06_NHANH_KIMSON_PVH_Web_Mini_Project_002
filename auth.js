@@ -15,7 +15,6 @@ export const { signIn, auth } = NextAuth({
           email,
           password,
         });
-        console.log("Authorize: ", res);
         return res;
       },
     }),

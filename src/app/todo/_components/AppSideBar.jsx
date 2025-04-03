@@ -1,41 +1,42 @@
-"use client"
+"use server";
 import { AddSquare, LoginCurve, More } from "iconsax-react";
 import { Star } from "lucide-react";
 import CreateNewWorkSpace from "./CreateNewWorkSpaceComponent";
 import WorkSpace from "./sidebar_card/work-space";
+import { getWorkSpace } from "../../../../service/get-all-work-space";
+import FavoriteWorkSpace from "./sidebar_card/favorite-work-space";
 
-const AppSideBar = () => {
+const AppSideBar = async () => {
+  const workSpace = await getWorkSpace();
+  const workSpaceData = workSpace.payload;
   return (
     <>
       <ul className="space-y-2 font-medium mt-6">
-        <div className="w-full">
-          <div className="px-4">
+        <div className="w-full h-50 overflow-y-scroll">
+          <div className="px-4 border border-gray-200/20">
             <div className="flex justify-between items-center">
               <h3 className="text-slate-500 text-2xl font-bold">Work Space</h3>
-              {/*  */}
               <CreateNewWorkSpace />
             </div>
             {/* CardSidebar */}
-            <WorkSpace/>
+            {workSpaceData.map((items) => (
+              <WorkSpace key={items.workspaceId} {...items} />
+            ))}
           </div>
         </div>
         {/* Favorite */}
-        <div className="w-full mt-6">
+        <div className="w-full mt-6 h-50 overflow-y-scroll">
           <div className="px-4">
             <div className="flex justify-between items-center">
               <h3 className="text-slate-500 text-2xl font-bold">Favorite</h3>
               <Star size="32" color="#94A3B8" />
             </div>
             {/* CardSidebar */}
-            <div>
-              <div className="flex justify-between mt-3 bg-slate-200 px-4 py-2 rounded-sm">
-                <div className="flex justify-between gap-3 items-center">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div>HRD Design</div>
-                </div>
-                <More size="32" color="black" />
-              </div>
-            </div>
+            {workSpaceData.map((items) =>
+              items.isFavorite ? (
+                <FavoriteWorkSpace key={items.workspaceId} {...items} />
+              ) : null
+            )}
           </div>
         </div>
 

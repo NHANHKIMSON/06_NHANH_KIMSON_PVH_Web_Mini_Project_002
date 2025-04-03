@@ -1,6 +1,5 @@
-import { data } from "@/app/(work-space)/_components/AppSideBar";
+import { data } from "@/app/todo/_components/AppSideBar";
 import { auth } from "../auth";
-
 export async function loginService({ email, password }) {
   const res = await fetch(`http://96.9.81.187:8080/api/v1/auth/login`, {
     method: "POST",
@@ -13,6 +12,7 @@ export async function loginService({ email, password }) {
     }),
   });
   const data = await res.json();
+  // console.log(data);
   return data;
 }
 
