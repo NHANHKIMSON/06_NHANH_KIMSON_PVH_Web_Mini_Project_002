@@ -7,9 +7,6 @@ import createNewWorkSpaceAction from "../../../action/create-new-work-space";
 export default async function Home() {
   return (
     <>
-      <div className="px-8">
-        
-      </div>
     </>
   );
 }

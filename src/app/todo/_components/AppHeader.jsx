@@ -2,9 +2,14 @@
 import { ArrowRight2, Notification } from "iconsax-react";
 import { getCurrentUser } from "../../../../service/login-service";
 import Account from "./Account";
-const AppHeader = async () => {
+import { getWorkSpaceById } from "../../../../service/create-new-work-space-service";
+const AppHeader = async ({params}) => {
   const data = await getCurrentUser();
   const user = data.payload;
+  const id = await params;
+  const work = await getWorkSpaceById(id);
+  console.log(id);
+  
   return (
     <>
       <div className="w-full px-8 py-2 bg-white flex justify-between">
