@@ -1,18 +1,15 @@
 "use server";
+
+import { addNewTask } from "../service/task-service";
+
 export default async function createNewTaskAction(formData) {
-    const title = formData.get("title");
-    const details = formData.get("detail");
-    const tag = formData.get("tag");
-    console.log(title, details, tag);
-
-
-    
+  const id = formData.get("id");
+  console.log("id in task Action - > ", id);
+  const title = formData.get("title");
+  const detail = formData.get("detail");
+  const tag = formData.get("tag");
+  await addNewTask({ title }, { detail }, { tag }, {id});
 }
-
-
-
-
-
 // {
 //     "taskTitle": "string",
 //     "taskDetails": "string",

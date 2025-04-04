@@ -57,9 +57,6 @@ export default function Layout({ children }) {
           <div className="w-full h-screen overflow-y-scroll">
             <AppHeader />
             <div >{children}</div>
-            <button className="fixed bottom-2 right-2 px-4 py-2 rounded-3xl text-white"> 
-              <CreateNewTask/>
-            </button>
           </div>
         </div>
       </div>

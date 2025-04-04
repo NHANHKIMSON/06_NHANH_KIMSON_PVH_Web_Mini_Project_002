@@ -15,9 +15,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SelectContent, SelectItem } from "@/components/ui/select";
 import { Select } from "@radix-ui/react-select";
-import createNewTaskAction from "../../../../../action/task-action";
+import TaskForm from "./TaskForm";
+
 
 export default function CreateNewTask() {
+
   return (
     <>
       <Dialog>
@@ -28,37 +30,7 @@ export default function CreateNewTask() {
           <DialogHeader>
             <DialogTitle>Create New New task</DialogTitle>
           </DialogHeader>
-          <form action={createNewTaskAction}>
-            <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="name" className="text-right">
-                  Name
-                </Label>
-                <Input name="title" id="name" className="col-span-3" />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="username" className="text-right">
-                  Username
-                </Label>
-                <Input name="detail" id="username" className="col-span-3" />
-              </div>
-              <select name="tag" required>
-                <option value="DESIGN">Choose Option</option>
-                <option value="DESIGN">DESIGN</option>
-                <option value="HOMEWORK">HOMEWORK</option>
-                <option value="ASSIGNMENT">ASSIGNMENT</option>
-                <option value="DEPLOYMENT">DEPLOYMENT</option>
-                <option value="GIT">GIT</option>
-                <option value="DATABASE">DATABASE</option>
-                <option value="MINI_PROJECT">MINI_PROJECT</option>
-                <option value="DOCUMENTATION">DOCUMENTATION</option>
-                <option value="FEATURE">FEATURE</option>
-              </select>
-            </div>
-            <DialogFooter>
-              <Button type="submit">Save changes</Button>
-            </DialogFooter>
-          </form>
+          <TaskForm/>
         </DialogContent>
       </Dialog>
     </>
