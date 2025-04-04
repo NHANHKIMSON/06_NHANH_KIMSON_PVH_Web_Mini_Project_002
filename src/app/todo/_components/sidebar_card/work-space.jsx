@@ -1,4 +1,5 @@
 import { More } from "iconsax-react";
+import Link from "next/link";
 
 export default function WorkSpace(items) {
   const colors = [
@@ -15,17 +16,19 @@ export default function WorkSpace(items) {
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   return (
     <>
-      <div>
-        <div className="flex justify-between mt-3 px-4 py-2 rounded-sm">
-          <div className="flex justify-between gap-3 items-center">
-            <div className={`w-3 h-3 rounded-full ${randomColor}`}></div>
-            <div>{items.workspaceName}</div>
-          </div>
-          <div>
-            <More size="32" color="black" />
+      <Link href={`/todo/${items.workspaceId}`}>
+        <div>
+          <div className="flex justify-between mt-3 px-4 py-2 rounded-sm">
+            <div className="flex justify-between gap-3 items-center">
+              <div className={`w-3 h-3 rounded-full ${randomColor}`}></div>
+              <div>{items.workspaceName}</div>
+            </div>
+            <div>
+              <More size="32" color="black" />
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 }
